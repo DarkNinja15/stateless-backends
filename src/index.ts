@@ -4,10 +4,5 @@ import { logger } from "./logger";
 logger();
 
 setInterval(()=>{
-    games.push({
-        id:Math.random().toString(),
-        blackPlayer:"Alice",
-        whitePlayer:"Bob",
-        moves:[]
-    });
+    games.addGame("Alice","Bob");
 },5000)
