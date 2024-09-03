@@ -6,8 +6,17 @@ export interface Game{
 }
 class GameManager{
     public games:Game[];
-    constructor(){
+    private static instance:GameManager;
+    private constructor(){
         this.games=[];
+    }
+
+    static getInstance():GameManager{
+        if(this.instance){
+            return this.instance;
+        }
+        this.instance=new GameManager();
+        return this.instance;
     }
 
     public addMove(gameId:string,move:string){
@@ -25,5 +34,4 @@ class GameManager{
         });
     }
 }
-
-export const games = new GameManager();
+export const gameManager = GameManager.getInstance();
